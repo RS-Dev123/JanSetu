@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0B1F3A;
+  --color-secondary: #1E3A8A;
+  --color-saffron: #FF9933;
+  --color-india-green: #138808;
+  --color-bg-slate: #0F172A;
+}
+
+/* Ashoka Chakra inspired spin */
+@keyframes spin-ashoka {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-ashoka {
+  animation: spin-ashoka 12s linear infinite;
+}
+
+.saffron-accent-line {
+  height: 2px;
+  background: linear-gradient(90deg, #FF9933 0%, rgba(255,153,51,0) 100%);
+}
+
+.green-success-pulse {
+  box-shadow: 0 0 0 0 rgba(19, 136, 8, 0.4);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(19, 136, 8, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(19, 136, 8, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(19, 136, 8, 0);
+  }
+}
+
+
+@layer base {
+  body {
+    @apply bg-darkbg text-slate-100 antialiased overflow-x-hidden;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(20, 123, 255, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(14, 101, 235, 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(18, 81, 190, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Glassmorphism panel styling */
+.glass-panel {
+  background: rgba(11, 18, 33, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(16, 26, 48, 0.85);
+  border-color: rgba(42, 153, 255, 0.25);
+  box-shadow: 0 12px 40px 0 rgba(42, 153, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Custom interactive scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(6, 10, 19, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(42, 153, 255, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(42, 153, 255, 0.6);
+}
+
+/* Leaflet maps custom override */
+.leaflet-container {
+  background-color: #060a13 !important;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: rgba(11, 18, 33, 0.95) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Pulse Glows */
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(42, 153, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(42, 153, 255, 0.8), 0 0 24px rgba(42, 153, 255, 0.4);
+  }
+}
+
+.pulse-glow {
+  animation: glow-pulse 3s infinite;
+}
+
+/* Custom animations */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  pointer-events: none;
+}
+
+.glow-card:hover::after {
+  left: 120%;
+}
