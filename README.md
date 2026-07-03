@@ -1,6 +1,6 @@
 # JanSetu (People's Priorities)
 ### AI-Powered Constituency Development & Grievance Orchestration Platform
-*Built with Google AI & Firebase for Hack2Skill "Build with AI: Code for Communities" Hackathon*
+
 
 ---
 
