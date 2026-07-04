@@ -104,54 +104,83 @@ erDiagram
 
 ---
 
-## 🚀 Deployment Guide
+# 🌐 Live Demo
 
-### Prerequisites
-- Node.js (v18+)
-- npm
+**Frontend (Netlify)**  
+https://jansetu-people-prorities.netlify.app/
 
-### 1. Clone & Install Dependencies
+**Backend API (Render)**  
+https://jansetu-backend-jowi.onrender.com/
+
+---
+
+# 🚀 Deployment
+
+## Production Deployment
+
+| Component | Platform | URL |
+|----------|----------|-----|
+| Frontend | Netlify | https://jansetu-people-prorities.netlify.app/ |
+| Backend API | Render | https://jansetu-backend-jowi.onrender.com/ |
+
+## Local Development
+
+### Clone the Repository
+
 ```bash
-# Clone the repository
+git clone https://github.com/<your-username>/JanSetu.git
 cd JanSetu
+```
 
-# Install backend dependencies
+### Install Dependencies
+
+Backend
+
+```bash
 cd backend
 npm install
+```
 
-# Install frontend dependencies
+Frontend
+
+```bash
 cd ../frontend
 npm install
 ```
 
-### 2. Configure Environment Variables
-Create a `.env` file under `/backend`:
+### Configure Environment Variables
+
+Create a `.env` file inside the `backend` directory.
+
 ```env
 PORT=5000
-GEMINI_API_KEY=your_gemini_api_key
-# To run in SQLite / Local Fallback mode:
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 USE_LOCAL_FALLBACK=true
 ```
 
-### 3. Seed Mock Database Records
-```bash
-cd backend
-npm run seed
-```
+### Run the Application
 
-### 4. Run Development Servers
+Backend
+
 ```bash
-# Start Backend
 cd backend
 npm run dev
+```
 
-# Start Frontend (in separate terminal)
+Frontend
+
+```bash
 cd frontend
 npm run dev
 ```
-Open `http://localhost:5173` to interact with the platform.
 
----
+Open:
+
+Frontend:
+http://localhost:5173
+
+Backend:
+http://localhost:5000
 
 ## 🏛️ Judge Demo Script (Walkthrough)
 
